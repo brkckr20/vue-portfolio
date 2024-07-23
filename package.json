@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@duskmoon/vue3-typed-js": "^0.0.4",
     "vue": "^3.4.31"
   },
   "devDependencies": {

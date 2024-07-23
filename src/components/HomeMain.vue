@@ -1,10 +1,12 @@
 <template>
-    <div class="h-screen bg-main pt-[68px]">
+    <div class="h-screen bg-main pt-[68px] flex items-center">
         <div class="max-w-6xl mx-auto pt-1 py-6">
             <div class="grid grid-cols-7 justify-between items-center">
                 <div class="col-span-4 font-poppins">
                     <h1 class="text-5xl font-light selection:text-white">HI, I'M A DEVELOPER</h1>
-                    <h1 class="text-[98px] -tracking-widest font-semibold selection:text-white">DESIGNER</h1>
+                    <Typed :options="options">
+                        <h1 class="text-[98px] font-semibold selection:text-white typing"></h1>
+                    </Typed>
                     <h1 class="selection:text-white">based in Los Angeles, USA.</h1>
                     <div class="flex gap-8 mt-5">
                         <button class="text-white px-7 py-4 bg-black">View My Works</button>
@@ -21,8 +23,23 @@
     </div>
 </template>
 <script>
+import { Typed } from '@duskmoon/vue3-typed-js';
+
+const options = {
+  strings: ["Developer", "Designer", "Driver"],
+  loop: true,
+  showCursor : false,
+  typeSpeed: 150,
+};
 export default {
-    
+    components : {
+        Typed
+    },
+    data : function(){
+        return {
+            options
+        }
+    }
 }
 </script>
 <style scoped>
