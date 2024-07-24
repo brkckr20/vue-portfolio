@@ -15,7 +15,9 @@
             </div>
         </div>
     </div>
-    <AppMenu v-if="isOpen"></AppMenu>
+    <transition name="fade">
+        <AppMenu v-show="isOpen" :isOpen="isOpen"></AppMenu>
+    </transition>
 </template>
 <script>
 import AppMenu from './AppMenu.vue';
@@ -42,4 +44,11 @@ export default {
         left: 50%;
         transform: translateX(-50%);
     }
+    .fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
+  opacity: 0;
+}
 </style>
