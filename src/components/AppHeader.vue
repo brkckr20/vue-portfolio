@@ -1,8 +1,8 @@
 <template>
-    <div id="navbar" class="max-w-6xl mx-auto h-[68px] relative z-50">
-        <div class="flex justify-between items-center h-full">
+    <div id="navbar" class="h-[68px] relative z-50" @scroll="handleScroll" :class="{ 'bg-white': position > 0 }">
+        <div class="max-w-6xl  mx-auto flex justify-between items-center h-full">
             <div class="text-2xl font-bold font-poppins">
-                BURAK
+                BURAK {{ position }}
             </div>
             <div class="flex items-center justify-between gap-3">
                 <i class="fa-solid fa-phone"></i> <span class="font-poppins text-base font-semibold selection:text-white">+90 (541) 621 50 73</span>
@@ -15,9 +15,9 @@
             </div>
         </div>
     </div>
-    <transition name="fade">
-        <AppMenu v-show="isOpen" :isOpen="isOpen"></AppMenu>
-    </transition>
+    <Transition>
+        <AppMenu v-if="isOpen" :isOpen="isOpen"></AppMenu>
+    </Transition>
 </template>
 <script>
 import AppMenu from './AppMenu.vue';
@@ -26,17 +26,33 @@ export default {
     components : {
         AppMenu
     },
+    self : this,
     data : function(){
         return{
             isOpen : false,
+            position : 0
         }
     },
-    methods: {},
+    created () {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    unmounted () {
+        window.removeEventListener('scroll', this.handleScroll);
+    },
+    methods: {
+        handleScroll (event) {
+            self.position = window.scrollY;
+            console.log(position);
+    }
+  }
 }
 </script>
 <style>
     .hamburger-inner,.hamburger-inner::before,.hamburger-inner::after{
         width: 28px;
+    }
+    .hamburger.is-active .hamburger-inner, .hamburger.is-active .hamburger-inner:after, .hamburger.is-active .hamburger-inner:before{
+        background-color: white;
     }
     #navbar{
         position: absolute;
@@ -44,11 +60,15 @@ export default {
         left: 50%;
         transform: translateX(-50%);
     }
-    .fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
-}
+    .v-enter-active,
+    .v-leave-active {
+    transition: opacity 0.5s ease;
+    }
 
-.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
-  opacity: 0;
-}
+    .v-enter-from,
+    .v-leave-to {
+    opacity: 0;
+    }
 </style>
+
+scroll olayı kontrol edilecek

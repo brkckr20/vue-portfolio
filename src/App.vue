@@ -2,6 +2,7 @@
   <div>
     <AppHeader></AppHeader>
     <HomeMain></HomeMain>
+    <HomeMain></HomeMain>
   </div>
 
 </template>
