@@ -1,5 +1,5 @@
 <template>
-    <div class="absolute inset-0 z-[49] bg-black/95 h-screen w-full flex flex-col items-center justify-center ">
+    <div class="bg-black/95 h-screen w-full flex flex-col items-center justify-center ">
         <Transition name="slide-fade" appear>
             <ul v-if="isOpen" class="font-poppins text-2xl text-white flex flex-col gap-6 items-center font-semibold isOpenMenu">
                 <li class="hover:text-main duration-200 ease-in-out cursor-pointer">Home</li>
