@@ -1,5 +1,5 @@
 <template>
-    <div id="navbar" class="h-[68px] fixed left-0 w-full top-0" @scroll="handleScroll" :class="{ 'bg-white': isScrolled > 0 }">
+    <div id="navbar" class="h-[68px] fixed left-0 w-full top-0 z-40" @scroll="handleScroll" :class="{ 'bg-white': isScrolled > 0 }">
         <div class="max-w-6xl  mx-auto flex justify-between items-center h-full">
             <div class="text-2xl font-bold font-poppins">
                 BURAK
