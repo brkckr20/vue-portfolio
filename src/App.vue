@@ -5,6 +5,9 @@
     <HomeAbout></HomeAbout>
     <HomeWhatIDo></HomeWhatIDo>
     <HomeResume></HomeResume>
+    <HomePortfolio></HomePortfolio>
+    <HomeContact></HomeContact>
+    <AppFooter></AppFooter>
   </div>
 
 </template>
@@ -15,6 +18,9 @@
   import HomeAbout from './components/HomeAbout.vue'
   import HomeWhatIDo from './components/HomeWhatIDo.vue'
   import HomeResume from './components/HomeResume.vue'
+  import HomePortfolio from './components/HomePortfolio.vue'
+  import HomeContact from './components/HomeContact.vue'
+  import AppFooter from './components/AppFooter.vue'
 
   export default {
     components : {
@@ -22,12 +28,19 @@
       HomeMain,
       HomeAbout,
       HomeWhatIDo,
-      HomeResume
+      HomeResume,
+      HomePortfolio,
+      HomeContact,
+      AppFooter,
+
     }
   }
 </script>
 
 
 <style>
+html,body{
+  scroll-behavior: smooth;
+}
 
 </style>

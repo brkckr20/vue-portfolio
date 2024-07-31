@@ -10,7 +10,7 @@
                     <h1 class="selection:text-white">based in Los Angeles, USA.</h1>
                     <div class="flex gap-8 mt-5">
                         <button class="text-white px-7 py-4 bg-black">View My Works</button>
-                        <button class="underline hover:no-underline">Contact me <i class="fa-solid fa-circle-arrow-down ml-2"></i></button>
+                        <a href="#contact" class="underline hover:no-underline block py-4">Contact me <i class="fa-solid fa-circle-arrow-down ml-2"></i></a>
                     </div>
                 </div>
                 <div class="col-span-3">
