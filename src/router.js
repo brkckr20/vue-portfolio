@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import auth from './auth';
 
 import Admin from './pages/Admin/Home.vue'
 import Login from './pages/Admin/Login.vue';
@@ -17,7 +18,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-    const isAuthentication = true;
+    const isAuthentication = auth.state.isAuthentication;
     if (to.meta.requiresAuth && !isAuthentication) {
         next("/login")
     } else {
