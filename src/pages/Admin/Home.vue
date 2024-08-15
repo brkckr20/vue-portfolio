@@ -43,8 +43,31 @@
 </template>
 <script setup>
   import AdminHeader from './AdminHeader.vue';
-  import { ref } from 'vue';
-  import { db, collection, addDoc } from '../../../firebase';
+  import { ref, onMounted } from 'vue';
+  import { db, collection, addDoc, getDocs } from '../../../firebase';
+
+  const items = ref([]);
+
+  const fetchData = async () => {
+    try {
+      const querySnapshot = await getDocs(collection(db, 'profil'));
+        items.value = querySnapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        }));
+        console.log(querySnapshot);
+        
+    } catch (error) {
+      
+    }
+  }
+  onMounted(() => {
+    fetchData();
+    console.log(items);
+    
+    
+  })
+
   const form1 = ref({
     baslik: '',
     typed: '',
