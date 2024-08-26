@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import auth from './auth';
+import auth from './auth.js';
 
 import Admin from './pages/Admin/Home.vue'
 import Login from './pages/Admin/Login.vue';

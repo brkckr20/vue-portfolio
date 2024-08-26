@@ -11,10 +11,12 @@
   "dependencies": {
     "@duskmoon/vue3-typed-js": "^0.0.4",
     "@headlessui/vue": "^1.7.22",
-    "firebase": "^10.12.5",
+    "@kyvg/vue3-notification": "^3.3.0",
+    "firebase": "^10.13.0",
     "heroicons": "^2.1.5",
     "vue": "^3.4.31",
-    "vue-router": "^4.4.3"
+    "vue-router": "^4.4.3",
+    "vuefire": "^3.2.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
