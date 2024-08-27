@@ -5,7 +5,7 @@
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div class="hidden sm:ml-6 sm:block">
               <div class="flex space-x-4">
-                <a v-for="item in navigation" @click="handleClick(item)" :key="item.name" :href="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</a>
+                <router-link v-for="item in navigation" @click="handleClick(item)" :key="item.name" :to="item.href" :class="[item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white', 'rounded-md px-3 py-2 text-sm font-medium']" :aria-current="item.current ? 'page' : undefined">{{ item.name }}</router-link>
               </div>
             </div>
           </div>
@@ -44,8 +44,8 @@
   import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
   
   const navigation = ref([
-    { name: 'Anasayfa', href: '#', current: true },
-    { name: 'Team', href: '#', current: false },
+    { name: 'Anasayfa', href: '/admin', current: true },
+    { name: 'About', href: '/admin/about', current: false },
     { name: 'Projects', href: '#', current: false },
     { name: 'Calendar', href: '#', current: false },
   ])
