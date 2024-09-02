@@ -19,30 +19,53 @@
     import AdminHeader from './AdminHeader.vue';
     import { db, collection, addDoc, getDocs } from '../../../firebase';
     import { doc, updateDoc } from 'firebase/firestore';
-    import { useNotification } from "@kyvg/vue3-notification";
-    const { notify }  = useNotification();
-    import {ref} from 'vue';
-
-    const success = () => {
-    notify({
-        type : "success",
-        title: "Bilgi",
-        text: "Güncelleme işlemi başarılı bir şekilde gerçekleştirildi!",
-      });
-  }
+    import {ref,onMounted} from 'vue';
+    import {success} from '../../utils'
 
     const formValues = ref({
-        aciklama : '',
-        email : '',
-        sehirulke : ''
+        aciklama : 'asd',
+        email : 'asdasdasd',
+        sehirulke : 'asdasdasd11',
+        id : '',
     });
+    const items = ref([]);
+    const fetchData = async () => {
+        const querySnapshot = await getDocs(collection(db, 'hakkimda'));
+        items.value = querySnapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+    }));
+    if (items.value.length > 0) {
+        formValues.value.aciklama = items.value[0].aciklama || '';
+        formValues.value.email = items.value[0].email || '';
+        formValues.value.sehirulke = items.value[0].sehirulke || '';
+        formValues.value.id = items.value[0].id || '';
+        }
+        
+    }
+    onMounted(fetchData)
+
     const handleUpdate = async () => {
-        await addDoc(collection(db,'hakkimda'), {
-            aciklama : formValues.value.aciklama,
-            email : formValues.value.email,
-            sehirulke : formValues.value.sehirulke
-        });
-        success();
+        // await addDoc(collection(db,'hakkimda'), {
+        //     aciklama : formValues.value.aciklama,
+        //     email : formValues.value.email,
+        //     sehirulke : formValues.value.sehirulke
+        // });
+                
+        try {
+      if (formValues.value.id) {
+            const docRef = doc(db,'hakkimda',formValues.value.id);
+            await updateDoc(docRef, {
+                aciklama: formValues.value.aciklama,
+                email: formValues.value.email,
+                sehirulke: formValues.value.sehirulke,
+            })
+            success("success","Güncelleme");
+      }
+    } catch (error) {
+      alert(error)
+    }
+    
     }
 </script>
 <style lang="">

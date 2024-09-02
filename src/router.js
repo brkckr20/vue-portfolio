@@ -5,11 +5,13 @@ import Admin from './pages/Admin/Home.vue'
 import Login from './pages/Admin/Login.vue';
 import HomePage from './components/HomePage.vue';
 import About from './pages/Admin/About.vue';
+import WhatIDo from './pages/Admin/WhatIDo.vue';
 
 const routes = [
     { path: "/", component: HomePage },
     { path: "/admin", component: Admin, meta: { requiresAuth: true } },
     { path: "/admin/about", component: About, meta: { requiresAuth: true } },
+    { path: "/admin/skill", component: WhatIDo, meta: { requiresAuth: true } },
     { path: "/login", component: Login }
 
 ];
