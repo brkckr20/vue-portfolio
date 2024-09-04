@@ -63,13 +63,6 @@
         id: doc.id,
         ...doc.data()
     }));
-    // if (items.value.length > 0) {
-    //     formValues.value.ikon = items.value[0].ikon || '';
-    //     formValues.value.altBaslik = items.value[1].altBaslik || '';
-    //     formValues.value.icerik = items.value[0].icerik || '';
-    //     formValues.value.id = items.value[0].id || '';
-    //     }
-        
     }
     onMounted(fetchData)
 
@@ -81,21 +74,6 @@
         });
         success("success","Kayıt");
         fetchData();
-                
-    //     try {
-    //   if (formValues.value.id) {
-    //         const docRef = doc(db,'hakkimda',formValues.value.id);
-    //         await updateDoc(docRef, {
-    //             aciklama: formValues.value.aciklama,
-    //             email: formValues.value.email,
-    //             sehirulke: formValues.value.sehirulke,
-    //         })
-    //         success("success","Güncelleme");
-    //   }
-    // } catch (error) {
-    //   alert(error)
-    // }
-    
     }
     
     const deleteItem =  async (id) =>{

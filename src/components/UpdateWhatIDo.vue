@@ -1,5 +1,3 @@
-
-
 <template lang="">
     <div class="relative z-10 font-poppins" aria-labelledby="modal-title" role="dialog" aria-modal="true">
 
@@ -21,7 +19,7 @@
         </div>
         <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
           <button type="button" @click="handleUpdateItem" class="inline-flex w-full justify-center rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 sm:ml-3 sm:w-auto">Güncelle</button>
-          <button type="button" @click="$emit('close')" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">İptal</button>
+          <button type="button" @click="$emit('close')" class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto">Kapat</button>
         </div>
       </div>
     </div>
@@ -32,12 +30,22 @@
 
 
 <script setup>
-import { defineProps, ref  } from 'vue';
+import { defineProps, defineEmits,ref  } from 'vue';
+import { db, collection, addDoc, getDocs ,deleteDoc} from '../../firebase';
+import { doc, updateDoc } from 'firebase/firestore';
 const props = defineProps(['item']);
-const item = props.item; 
+const emit = defineEmits();
+const item = ref(props.item); 
 
 const handleUpdateItem = async() => {
-    console.log("Güncelleme işlemi yapılacaktır.");
+  const docRef = doc(db, 'neyaparim', item.value.id); 
+  const updatedData = {
+            ikon: item.value.ikon,
+            altBaslik: item.value.altBaslik,
+            icerik: item.value.icerik,
+        };
+  await updateDoc(docRef, updatedData);
+  
 }
 
 </script>

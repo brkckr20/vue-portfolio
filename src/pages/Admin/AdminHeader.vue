@@ -48,7 +48,7 @@
     { name: 'Anasayfa', href: '/admin', current: true },
     { name: 'About', href: '/admin/about', current: false },
     { name: 'WhatIDo', href: '/admin/skill', current: false },
-    { name: 'Projects', href: '#', current: false },
+    { name: 'Resume', href: '/admin/resume', current: false },
     { name: 'Calendar', href: '#', current: false },
   ])
 
