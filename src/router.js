@@ -7,9 +7,10 @@ import HomePage from './components/HomePage.vue';
 import About from './pages/Admin/About.vue';
 import WhatIDo from './pages/Admin/WhatIDo.vue';
 import Resume from './pages/Admin/Resume.vue';
+import HomeV2 from './v2/pages/HomeV2.vue';
 
 const routes = [
-    { path: "/", component: HomePage },
+    { path: "/", component: HomeV2 },
     { path: "/admin", component: Admin, meta: { requiresAuth: true } },
     { path: "/admin/about", component: About, meta: { requiresAuth: true } },
     { path: "/admin/skill", component: WhatIDo, meta: { requiresAuth: true } },

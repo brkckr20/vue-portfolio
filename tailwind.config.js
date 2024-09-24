@@ -6,13 +6,16 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily : {
-        'poppins' : ["Poppins"]
+      fontFamily: {
+        'poppins': ["Poppins"],
+        'unbounded': ["Unbounded"],
       },
-      colors : {
-        'main' : '#f5df4e',
-        'secondary' : '#212529',
-        'thirds' : '#6c757d'
+      colors: {
+        'main': '#f5df4e',
+        'secondary': '#212529',
+        'thirds': '#6c757d',
+        'green-main': "#344C36",
+        'yellow-main': '#FAAD1B'
       }
     },
   },
