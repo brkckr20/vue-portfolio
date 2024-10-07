@@ -14,7 +14,13 @@
                     <li>CONTACT</li>
                 </ul>
             </div>
-            <div>3</div>
+            <div class="h-full flex items-center justify-center">
+                <div class="bg-yellow-main p-2 h-full flex font-unbounded rounded-full">
+                    <div class="left"></div>
+                    <div class="middle bg-green-main">HIRE ME</div>
+                    <div class="right"></div>
+                </div>
+            </div>
         </div>
     </div>
 </template>
